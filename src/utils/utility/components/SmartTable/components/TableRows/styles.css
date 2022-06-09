@@ -1,0 +1,15 @@
+#TableRows_nonDataRow td {
+  padding: 50px 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+@media (min-width: 600px) {
+  #TableRows_nonDataRow td {
+    font-size: 2em;
+  }
+}
+
+.SmartTable_table tbody > tr > td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}

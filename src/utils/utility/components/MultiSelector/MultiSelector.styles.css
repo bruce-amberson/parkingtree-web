@@ -1,0 +1,9 @@
+/*
+*
+* MultiSelector styles
+*
+*/
+.MultiSelector_tags {
+  display: flex;
+  flex-wrap: wrap;
+}

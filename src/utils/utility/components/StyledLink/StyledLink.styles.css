@@ -1,0 +1,10 @@
+.StyledLink_link {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--linkText);
+  margin: 2px 0;
+}
+
+.StyledLink_link:hover {
+  text-decoration: underline;
+}

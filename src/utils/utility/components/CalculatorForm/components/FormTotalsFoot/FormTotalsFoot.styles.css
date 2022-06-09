@@ -1,0 +1,58 @@
+.TemplateTableTotals_templateTableTotals td, .TemplateTableTotals_templateTableTotals th {
+  padding: 3px;
+}
+
+.TemplateTableTotals_templateTableTotals td, .TemplateTableTotals_ageBrackets {
+  text-align: center;
+}
+
+.TemplateTableTotals_templateTableTotals td {
+  font-size: 14px;
+}
+
+.TemplateTableTotals_templateTableTotals tr {
+  border-bottom: 1px solid #DDD;
+}
+
+.TemplateTableTotals_templateTableTotals tr:first-child {
+  border-bottom: none;
+}
+
+.TemplateTableTotals_templateTableTotals th {
+  font-weight: normal;
+  font-size: 12px;
+  color: #9E9E9E;
+}
+
+.TemplateTableTotals_templateTableTotals {
+  text-align: right;
+}
+
+.TemplateTableTotals_totalsNot100 {
+  color: red;
+}
+
+.TemplateTableTotals_textAlignment {
+  text-align: left;
+}
+
+
+@media not print {
+  .TemplateTableTotals_textAlignment {
+    width: 125px;
+  }
+}
+
+.TemplateTableTotals_showOnPrint {
+  display: none;
+}
+
+@media print {
+  tfoot {
+    display: table-row-group;
+  }
+
+  .TemplateTableTotals_showOnPrint {
+    display: table-cell;
+  }
+}

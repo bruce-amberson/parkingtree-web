@@ -1,0 +1,24 @@
+.TableHeader_stickyHeader {
+  top: 0;
+  left: 0;
+  z-index: 2;
+  position: sticky;
+}
+
+.TableHeader_headerCell {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.TableHeader_checkbox {
+  display: flex;
+  width: 70px;
+}
+
+.SmartTable_table thead th {
+  /* TODO: Set background-color in header so it uses MUI theme background color */
+  background-color: rgb(245,245,245); 
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}

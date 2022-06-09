@@ -1,0 +1,16 @@
+.Container_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 95px 90%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  height: 100vh;
+  grid-template-areas:
+    "logo"
+    "body";
+}
+.Container_logo { 
+  grid-area: logo;
+  margin: 10px;
+}
+.Container_body { grid-area: body; }

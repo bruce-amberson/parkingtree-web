@@ -1,0 +1,32 @@
+.Register_formContainer {
+  display: flex;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.Register_Container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr .5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo"
+    "title"
+    "username"
+    "pass"
+    "btn";
+}
+.Register_logo { grid-area: logo; }
+.Register_title { 
+  grid-area: title;
+  text-transform: uppercase;
+}
+.Register_username { 
+  grid-area: username;
+  padding-top: 20px;
+}
+.Register_pass {
+  grid-area: pass;
+  margin-top: 5px;
+}
+.Register_btn { grid-area: btn; }

@@ -1,0 +1,56 @@
+/*
+*
+* LegalFooter styles
+*
+*/
+.LegalFooter_footer {
+  height: 45px;
+  margin-top: 25px;
+}
+
+.LegalFooter_footer > div {
+  border-radius: 5px 5px 0 0;
+}
+
+.LegalFooter_legalContainer {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LegalFooter_header,
+.LegalFooter_arrowIcon {
+  color: var(--linkText);
+}
+
+.LegalFooter_link {
+  text-decoration: none;
+  color: var(--linkText);
+}
+
+.LegalFooter_link:hover {
+  text-decoration: underline;
+}
+
+.LegalFooter_header {
+  margin: 0px 5px 0px 0px;
+  font-size: medium;
+}
+
+.LegalFooter_headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+  background: none;
+  border: none;
+}
+
+.LegalFooter_legalBody {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 1000px;
+}

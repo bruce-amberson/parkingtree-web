@@ -1,0 +1,22 @@
+/* Removings cell padding when checkbox/icons are used */
+.SmartTable_table td.SmartTable_selectColumn, .SmartTable_table th.SmartTable_selectColumn {
+  width: 60px;
+  padding: 0;
+  text-align: center;
+}
+
+/* Removings cell padding when Dropdown statusOption change is being used */
+.SmartTable_table td.SmartTable_statusOption, .SmartTable_table th.SmartTable_statusOption {
+  padding: 0 20px;
+}
+
+.SmartTable_table td.SmartTable_iconColumn,
+.SmartTable_table th.SmartTable_iconColumn {
+  width: 40px;
+  padding: 0 10px;
+}
+
+.SmartTable_table td.SmartTable_buttonColumn,
+.SmartTable_table th.SmartTable_buttonColumn {
+  padding: 0 10px;
+}

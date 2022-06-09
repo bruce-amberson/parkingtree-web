@@ -1,0 +1,27 @@
+.Login_formContainer {
+  display: flex;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.Login_Container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo"
+    "username"
+    "pass"
+    "btn";
+}
+.Login_logo { grid-area: logo; }
+.Login_username { 
+  grid-area: username;
+  padding-top: 20px;
+}
+.Login_pass {
+  grid-area: pass;
+  margin-top: 5px;
+}
+.Login_btn { grid-area: btn; }

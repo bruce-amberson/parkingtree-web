@@ -1,0 +1,87 @@
+.TablePagination_container {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.TablePagination_selectedRowsCount { grid-area: selectedRowCount; }
+.TablePagination_paginationControls { grid-area: controls; }
+
+.TablePagination_paginationControls {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.TablePagination_pagination,
+.TablePagination_rowsPerPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+}
+
+.TablePagination_selectedRowsCount {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.TablePagination_paginationCount {
+  width: 120px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.TablePagination_leftButtons,
+.TablePagination_rightButtons {
+  display: flex;
+}
+
+.TablePagination_rowsPerPage > span:first-of-type {
+  margin-right: 5px;
+}
+
+#TablePagination_nonDataRow td {
+  padding: 50px 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+@media (min-width: 800px) {  
+  .TablePagination_pagination {
+    margin-top: 15px;
+    margin-left: 30px;
+  }
+  
+  .TablePagination_paginationControls {
+    flex-direction: row;
+    padding-bottom: 5px;
+  }
+
+  .TablePagination_selectedRowsCount {
+    text-align: left;
+    padding: 5px 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .TablePagination_pagination {
+    margin-top: 15px;
+    flex-flow: row wrap;
+    flex: 1;
+  }
+
+  .TablePagination_paginationCount {
+    flex: 1 100%;
+    order: 1;
+  }
+
+  .TablePagination_leftButtons,
+  .TablePagination_rightButtons {
+    order: 2;
+    flex: 1 auto;
+  }
+
+  .TablePagination_leftButtons {
+    justify-content: end;
+  }
+}

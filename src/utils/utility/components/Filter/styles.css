@@ -1,0 +1,19 @@
+/* /////// Filter styles ////// */
+.Filter_header {
+    margin: 0 15px;
+    font-size: large;
+    font-weight: bold;
+  }
+  
+  .Filter_options {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: -10px;
+  }
+  
+  .Filter_list {
+    width: 45%;
+    flex: 1 auto;
+    margin: 15px !important;
+  }

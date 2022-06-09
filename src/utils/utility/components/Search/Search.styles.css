@@ -1,0 +1,60 @@
+/*
+*
+* Search Styles
+*
+*/
+.Search_container {
+  max-width: 330px;
+  padding: 3px;
+}
+
+.Search_inputElements {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.Search_inputElements.left {
+  grid-template-areas: "search searchInput clear";
+}
+
+.Search_inputElements.right {
+  grid-template-areas: "searchInput clear search";
+}
+
+#Search_searchIcon { grid-area: search; }
+#Search_clearIcon { grid-area: clear; }
+.Search_input { grid-area: searchInput; }
+
+#Search_underline {
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid var(--primary);
+}
+
+.Search_input {
+  border: none;
+  outline : none;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0 5px;
+  font-size: 1.1em;
+}
+
+#Search_underline,
+.Search_input {
+  transform: scaleX(0);
+  transition: transform 300ms;
+}
+#Search_underline.open,
+.Search_input.open {
+  transform: scaleX(1);
+}
+
+#Search_underline.left,
+.Search_input.left {
+  transform-origin: left;
+}
+
+#Search_underline.right,
+.Search_input.right {
+  transform-origin: right;
+}

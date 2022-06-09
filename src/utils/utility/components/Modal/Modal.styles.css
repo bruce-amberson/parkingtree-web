@@ -1,0 +1,16 @@
+.Modal_titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 25px;
+}
+
+.Modal_buttonsContainer {
+  display: flex;
+  justify-content: space-between !important;
+  padding: 8px 30px !important;
+}
+
+.Modal_actionsButtons {
+  display: flex;
+}

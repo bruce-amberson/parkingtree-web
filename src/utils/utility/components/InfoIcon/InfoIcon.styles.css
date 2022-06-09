@@ -1,0 +1,14 @@
+/*
+*
+* InfoIcon styles
+*
+*/
+.tippy-box {
+  background-color: #fff;
+  color: rgb(75, 75, 75);
+  box-shadow: 2px 2px 10px rgb(150, 150, 150);
+  font-size: 12px;
+  border-bottom: 5px solid var(--accent);
+  text-align: left;
+  padding: 5px;
+}

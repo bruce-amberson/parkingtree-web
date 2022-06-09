@@ -1,0 +1,21 @@
+.sideNavContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  height: 100%;
+}
+
+.SideNav_bottomMenu {
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.divider {
+  margin: 10px 0 0;
+}
+
+.helpContainer a,
+.helpContainer p {
+  font-size: 16px;
+  margin: 2px;
+}

@@ -1,0 +1,13 @@
+.Authenticated_AppContainer {
+  display: grid;
+  grid-template-columns: .13fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sideNav viewContainer";
+  height: 100vh;
+}
+.Authenticated_sideNav { grid-area: sideNav; }
+.Authenticated_viewContainer { grid-area: viewContainer; }

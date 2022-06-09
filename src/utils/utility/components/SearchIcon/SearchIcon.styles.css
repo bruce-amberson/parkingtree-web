@@ -1,0 +1,89 @@
+/*
+*
+* SearchIcon styles
+*
+*/
+
+
+.SearchIcon_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.SearchIcon_searchIcon, .SearchIcon_searchIconInverse {
+  color: var(--accent);
+}
+
+.SearchIcon_searchIconInverse {
+  color: #fff;
+}
+
+.SearchIcon_iconContainerClosed, .SearchIcon_iconContainerOpen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 0 5px 5px 0;
+}
+
+.SearchIcon_iconContainerOpen {
+  background-color: var(--accent);
+}
+
+.SearchIcon_textBoxContainerClosed, .SearchIcon_textBoxContainerOpen {
+  border: 1px solid var(--accent);
+  width: 0px;
+  opacity: 0;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s, width 0.3s;
+  border-radius: 5px 0 0 5px;
+}
+
+.SearchIcon_textBoxContainerOpen {
+  width: 250px;
+  opacity: 1;
+  margin-left: 10px;
+}
+
+.SearchIcon_input {
+  height: 35px;
+  width: 100%;
+  margin-left: 5px;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.SearchIcon_clearInputIcon {
+  color: var(--accent);
+}
+
+.SearchIcon_clearInputIconShow, .SearchIcon_clearInputIconHide {
+  display: flex;
+  align-items: center;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.SearchIcon_clearInputIconHide {
+  display: none;
+}
+
+.SearchIcon_infoIcon {
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.SearchIcon_searchTipsTitle {
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}

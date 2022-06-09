@@ -1,0 +1,19 @@
+.SmartTable_tableBody {
+  overflow: auto;
+}
+
+.SmartTable_table {
+  width: 100%;
+  display: table;
+  border-spacing: 0;
+}
+
+.SmartTable_table td, .SmartTable_table th {
+  padding: 15px 20px;
+  text-align: left;
+}
+
+.SmartTable_table td {
+  font-size: 13px;
+  align-self: center;
+}

@@ -1,0 +1,38 @@
+/*
+*
+* Form_Wrapper styles
+*
+*/
+.FormWrapper_container {
+  position: relative;
+  width: 250px;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: 40px;
+}
+
+.FormWrapper_title {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 15px 0;
+  font-size: 24px;
+  border-radius: 5px 5px 0 0;
+  font-weight: normal;
+}
+
+.FormWrapper_instructions {
+  margin: 15px 15px 0 15px;
+}
+
+.FormWrapper_body {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .FormWrapper_container {
+    width: 300px;
+    margin-left: -150px;
+  }
+}

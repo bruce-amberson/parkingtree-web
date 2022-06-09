@@ -1,0 +1,54 @@
+/*
+*
+* Floating_Action_Button styles
+*
+*/
+.FloatingActionButton_container {
+  position: fixed;
+  bottom: 35px;
+  right: 25px;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 1000;
+}
+
+.FloatingActionButton_mainButton {
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+.FloatingActionButton_menuContainerHide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms, visibility 500ms;
+}
+
+.FloatingActionButton_menuContainerShow {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 250ms;
+}
+
+.FloatingActionButton_overlayShow {
+  display: inline;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.FloatingActionButton_menuOptionButton {
+  margin-top: 10px;
+}
+
+.FloatingActionButton_showMenu {
+  transform: rotate(0);
+  transition: transform 150ms;
+}
+
+.FloatingActionButton_showMenu.rotate {
+  transform: rotate(180deg);
+}

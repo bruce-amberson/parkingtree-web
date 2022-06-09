@@ -1,0 +1,66 @@
+/*
+*
+* Notification_Card styles
+*
+*/
+.NotificationsCard_cardContainer_show,
+.NotificationsCard_cardContainer_hide {
+  background-color: #fff;
+  margin: 10px 10px;
+  width: 275px;
+  display: flex;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35), -1px -1px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: left 150ms ease;
+  border-radius: 5px;
+}
+
+.NotificationsCard_cardContainer_show {
+  left: 0;
+}
+
+.NotificationsCard_cardContainer_hide {
+  left: -400px;
+}
+
+.NotificationsCard_colorBarError,
+.NotificationsCard_colorBarWarn,
+.NotificationsCard_colorBarSuccess {
+  width: 10px;
+  margin-right: 10px;
+  background-color: var(--error);
+  border-radius: 5px 0 0 5px;
+}
+
+.NotificationsCard_colorBarWarn {
+  background-color: rgb(250, 229, 0);
+}
+
+.NotificationsCard_colorBarSuccess {
+  background-color: #41AD49;
+}
+
+.NotificationsCard_messageBody {
+  margin: 15px 0;
+  width: 220px;
+}
+
+.NotificationsCard_dismiss {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .NotificationsCard_cardContainer_show,
+  .NotificationsCard_cardContainer_hide {
+    width: 350px;
+    margin: 10px 15px;
+  }
+
+  .NotificationsCard_messageBody {
+    width: 290px;
+  }
+}

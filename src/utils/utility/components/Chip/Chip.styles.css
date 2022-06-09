@@ -1,0 +1,39 @@
+/*
+*
+* Chip styles
+*
+*/
+.Chip_container {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--primary);
+  border-radius: 2px;
+  color: var(--primary);
+  margin: 5px;
+  padding: 7px 5px;
+}
+
+.Chip_actions {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 5px;
+}
+
+.Chip_actionContainer {
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.Chip_actionIcon {
+  font-size: 18px;
+  padding: 3px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.Chip_actionIcon:hover {
+  color: var(--accent);
+}

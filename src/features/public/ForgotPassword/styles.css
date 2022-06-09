@@ -1,0 +1,29 @@
+.Forgot_formContainer {
+  display: flex;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.Forgot_Container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr .5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo"
+    "title"
+    "explanation"
+    "username"
+    "btn";
+}
+.Forgot_logo { grid-area: logo; }
+.Forgot_title { 
+  grid-area: title;
+  text-transform: uppercase;
+}
+.Forgot_explanation { grid-area: explanation; }
+.Forgot_username { 
+  grid-area: username;
+  padding-top: 20px;
+}
+.Forgot_btn { grid-area: btn; }

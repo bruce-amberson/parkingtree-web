@@ -1,0 +1,76 @@
+/*
+*
+* SplashScreen Styles
+*
+*/
+
+.SplashScreen_splashScreenContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.SplashScreen_splashScreen {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+
+}
+
+.SplashScreen_splashScreenLogo {
+  position: absolute;
+  width: 100%;
+  top: 42%;
+}
+
+.SplashScreen_pulsingOne,
+.SplashScreen_pulsingTwo,
+.SplashScreen_pulsingThree {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+.SplashScreen_pulsingOne {
+  border: 4px solid #0072cf;
+  animation: pulsate infinite 4s;
+}
+
+.SplashScreen_pulsingTwo {
+  border: 4px solid #f07721;
+  animation: pulsate infinite 4s;
+  animation-delay: 1.1s;
+}
+
+.SplashScreen_pulsingThree {
+  border: 4px solid #02b450;
+  animation: pulsate infinite 4s;
+  animation-delay: 2.1s;
+}
+
+@keyframes pulsate {
+  0% {
+    -webkit-transform: scale(.1, .1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: .2;
+  }
+
+  100% {
+    -webkit-transform: scale(1 1);
+    opacity: 0;
+  }
+} 
+
+@media (max-width: 800px) {
+    .SplashScreen_splashScreenLogo {
+        top: 35%;
+    }
+  }

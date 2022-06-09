@@ -1,0 +1,156 @@
+.calculator_container {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.table_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator_container table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse; 
+}
+
+.calculator_container tbody td,
+.calculator_container tbody th {
+  border-bottom: 1px solid white;
+}
+
+.calculator_container td, th {
+  padding: 5px; 
+}
+
+.calculator_container td {
+  text-align: center;
+}
+
+@media not print {
+  .calculator_container th.brackets,
+  .calculator_container th.category,
+  .calculator_container th.subcategory  {
+    position: sticky;
+    z-index: 1;
+  }
+}
+
+.calculator_header_buttons {
+  text-align: left;
+  margin-bottom: 5px;
+  min-width: 200px;
+}
+
+.calculator_show_selected_funds_enabled {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.calculator_show_selected_funds_disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.calculator_show_selected_funds_disabled,
+.calculator_show_selected_funds_enabled {
+  margin: 0 5px 0 5px;
+}
+
+.brackets_header_label {
+  text-align: right;
+}
+
+.fund_title {
+  display: flex;
+  align-items: center;
+}
+
+.calculator_footer_notes {
+  font-size: 14px;
+  padding: 3px 24px;
+  color: var(--primary);
+  text-align: left;
+  max-width: 850px;
+}
+
+.is_static_margin {
+  margin-top: 35px;
+}
+
+.is_agebased_margin {
+  margin-top: 15px;
+}
+
+/* sticky headers */
+/* for brackets */
+.calculator_container th.brackets {
+  min-height: 60px; 
+  background-color: white;
+}
+/* for category */
+.calculator_container th.category {
+  background-color: var(--primary);
+}
+/* for subcategory */
+.calculator_container th.subcategory {
+  background-color: white; 
+}
+
+.calculator_bracket_input {
+  max-width: 44px;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  text-align: center;
+  font-size: 100%;
+}
+
+.onclick {
+  cursor: pointer;
+}
+
+.category_label_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.subtotal,
+.total {
+  background-color: #D5D5D5;
+}
+
+.subtotal_label,
+.total_label {
+  font-size: small;
+}
+
+.bracket_error {
+  background-color: rgb(255, 144, 166);
+}
+
+@media print {
+  .calculator_container thead {
+    display: table-row-group;
+  }
+  .calculator_container body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  };
+}

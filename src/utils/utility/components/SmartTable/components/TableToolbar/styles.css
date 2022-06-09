@@ -1,0 +1,138 @@
+.TableToolbar_container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas: 
+  'title' 
+  'rightActions'
+  'leftActions'; 
+  align-items: center;
+  padding: 5px;
+}
+
+.TableToolbar_leftActions { grid-area: leftActions;}
+.TableToolbar_title { grid-area: title;}
+.TableToolbar_rightActions { grid-area: rightActions;}
+
+.TableToolbar_leftActions, 
+.TableToolbar_title,
+.TableToolbar_rightActions {
+  display: flex;
+  align-items: center;
+}
+
+.TableToolbar_leftActions {
+  justify-content: flex-start;
+}
+
+.TableToolbar_title {
+  font-size: x-large;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: auto;
+  padding: 20px;
+}
+
+.TableToolbar_rightActions {
+  justify-content: flex-end;
+}
+
+.TableToolbar_bulkOptions {
+  display: flex;
+  align-items: center;
+}
+
+
+/* /////// Bulk statusOption change styles ////// */
+.bulkStatusCheckbox {
+  display: flex;
+  justify-content: center;
+  margin-left: 9px;
+}
+
+
+/* /////// Search Bar styles ////// */
+.TableToolbar_search {
+  display: flex;
+  flex-direction: column;
+}
+
+.TableToolbar_searchMenu {
+  align-self: flex-end;
+  position: absolute;
+  background-color: #fff;
+  z-index: 20;
+  box-shadow: 0 2px 10px rgb(200, 200, 200);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 150ms;
+  margin-top: 40px;
+  margin-right: 60px;
+  border-radius: 5px;
+}
+
+.TableToolbar_searchMenu > li:first-of-type {
+  border-radius: 5px 5px 0 0;
+}
+
+.TableToolbar_searchMenu > li:last-of-type {
+  border-radius: 0 0 5px 5px;
+}
+
+.TableToolbar_searchMenu.show {
+  transform: scaleY(1);
+}
+
+.TableToolbar_searchOverlayShow {
+  display: inline;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* /////// Show Columns styles ////// */
+.TableToolbar_showColumnsTitle {
+  padding: 10px 25px;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* /////// Search Bar styles ////// */
+.TableToolbar_filterOptions {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.TableToolbar_filterList {
+  width: 45%;
+  margin: 15px !important;
+}
+
+.TableToolbar_filterChips {
+  padding: 5px 20px;
+}
+
+
+@media (min-width: 600px) {
+  .TableToolbar_container {
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'title title'
+    'leftActions rightActions';
+  }
+
+  .TableToolbar_title {
+    padding: 0;
+  }
+}
+
+@media (min-width: 800px) {
+  .TableToolbar_container {
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-areas: 'leftActions title rightActions';
+  }
+}

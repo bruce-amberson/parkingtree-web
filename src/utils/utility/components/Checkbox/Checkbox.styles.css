@@ -1,0 +1,12 @@
+/*
+*
+* Checkbox Styles
+*
+*/
+/* HACK centers checkbox ripple effect after adding margin */
+.Common_Checkbox_container > div > div > div > div + div > span {
+    overflow: visible !important;
+}
+.Common_Checkbox_container > div > div > div > div + div > span > div {
+    left: -12px !important;
+}

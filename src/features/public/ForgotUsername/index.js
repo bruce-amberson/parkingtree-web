@@ -23,7 +23,7 @@ import {
 
 import { userLogin } from 'ui/actions';
 
-import 'features/public/ForgotPassword/styles.css';
+import 'features/public/ForgotUsername/styles.css';
 
 export class ForgotUsername extends Component {
 

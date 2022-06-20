@@ -1,0 +1,24 @@
+.RegistrationConfirmation_container {
+  display: flex;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.RegistrationConfirmation_organizer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo"
+    "title";
+  margin: auto;
+}
+.RegistrationConfirmation_logo { grid-area: logo; }
+.RegistrationConfirmation_contents { 
+  grid-area: title;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: larger;
+  padding-top: 20px;
+}

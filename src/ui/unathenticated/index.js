@@ -5,6 +5,7 @@ import Login from 'features/public/Login';
 import Register from 'features/public/Register';
 import ForgotPassword from 'features/public/ForgotPassword';
 import ForgotUsername from 'features/public/ForgotUsername';
+import RegistrationConfirmation from 'features/public/RegistrationConfirmation';
 
 export class Unauthenticated extends Component {
 
@@ -15,6 +16,7 @@ export class Unauthenticated extends Component {
         <Route exact path='/register' render={props => (<Register {...props} />)} />
         <Route exact path='/forgot-password' render={props => (<ForgotPassword {...props} />)} />
         <Route exact path='/forgot-username' render={props => (<ForgotUsername {...props} />)} />
+        <Route exact path='/registration-confirmation' render={props => (<RegistrationConfirmation {...props} />)} />
       </Switch>
     );
   }

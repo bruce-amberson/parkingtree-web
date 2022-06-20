@@ -208,6 +208,7 @@ export class Register extends Component {
     if (validationObject.isValid) {
       const result = prepInputList(validationObject.list);
       console.log(result);
+      this.goToRoute('/registration-confirmation');
     }
     else {
       const termsCheckbox = list.find(input => input.inputName === 'terms');
@@ -224,6 +225,10 @@ export class Register extends Component {
     const checkBoxIndex = window.smartForm.inputList.findIndex(input => input.inputName === 'terms');
     updateInput(checkBoxIndex, { inputName: 'terms', val: true, isValid: true });
     this.setState({ isReadingTerms: false }); // close buttom page
+  }
+
+  goToRoute = tabRoute => {
+    this.props.history.push(tabRoute);
   }
 }
 

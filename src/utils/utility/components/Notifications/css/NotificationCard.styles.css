@@ -1,8 +1,3 @@
-/*
-*
-* Notification_Card styles
-*
-*/
 .NotificationsCard_cardContainer_show,
 .NotificationsCard_cardContainer_hide {
   background-color: #fff;
@@ -28,7 +23,7 @@
 .NotificationsCard_colorBarSuccess {
   width: 10px;
   margin-right: 10px;
-  background-color: var(--error);
+  background-color: red;
   border-radius: 5px 0 0 5px;
 }
 

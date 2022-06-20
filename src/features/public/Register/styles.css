@@ -7,13 +7,17 @@
 .Register_Container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: .5fr .5fr .5fr .5fr .5fr;
+  grid-template-rows: .5fr .25fr .5fr .5fr .5fr .5fr .5fr;
   gap: 0px 0px;
   grid-template-areas:
     "logo"
     "title"
+    "firstname"
+    "lastname"
     "username"
     "pass"
+    "pass-requirements"
+    "terms"
     "btn";
 }
 .Register_logo { grid-area: logo; }
@@ -21,12 +25,39 @@
   grid-area: title;
   text-transform: uppercase;
 }
+.Register_firstname {
+  grid-area: firstname;
+  margin-top: 5px;
+}
+.Register_lastname {
+  grid-area: lastname;
+  margin-top: 5px;
+}
 .Register_username { 
   grid-area: username;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 .Register_pass {
   grid-area: pass;
   margin-top: 5px;
 }
+.Register_passrequirements {
+  grid-area: pass-requirements;
+  margin-top: 5px;
+}
+.Register_terms {
+  grid-area: terms;
+  margin-top: 5px;
+}
 .Register_btn { grid-area: btn; }
+
+.Register_terms_close {
+  width: 100%;
+  text-align: right;
+}
+
+.Register_terms_text {
+  margin: auto;
+  width: 70%;
+  height: 60%;
+}

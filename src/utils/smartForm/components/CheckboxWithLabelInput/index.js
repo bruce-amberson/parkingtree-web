@@ -9,7 +9,7 @@ import {
 import {
   addInput,
   updateInput,
-} from 'utils/singleForm/helper';
+} from 'utils/smartForm/helper';
 
 
 export class CheckboxWithLabelInput extends Component {
@@ -33,13 +33,15 @@ export class CheckboxWithLabelInput extends Component {
       PropTypes.string,
       PropTypes.bool,
     ]), // if parent component wants to update the val
+
+    updateError: PropTypes.func.isRequired,
+    hasError: PropTypes.bool.isRequired,
   };
 
   state = {
     val: false,
     inputIndex: undefined,
-    isError: undefined,
-    helperMsg: ''
+    hasError: undefined,
   };
 
   componentDidMount() {
@@ -48,9 +50,9 @@ export class CheckboxWithLabelInput extends Component {
     this.setState({ inputIndex });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     const { inputName } = this.props;
-    const list = window.singleForm.inputList;
+    const list = window.smartForm.inputList;
     if (list.length > 0) {
       const curInput = list[this.state.inputIndex];
       if (curInput && curInput.update && curInput.inputName === inputName && curInput.val !== undefined) {
@@ -73,11 +75,17 @@ export class CheckboxWithLabelInput extends Component {
     const {
       inputName, labelText, isDisabled, isReadOnly,
       labelFontSize, checkBoxSize, checkBoxPadding,
-      className, style,
+      className, style, hasError
     } = this.props;
 
-    const { val, } = this.state;
-    const entireLabel = <span style={{ fontSize: labelFontSize }}>{labelText}</span>;
+    const { val } = this.state;
+    
+    let color = undefined;
+    let entireLabel = <span style={{ fontSize: labelFontSize }}>{labelText}</span>;
+    if (hasError) {
+      color = 'red';
+      entireLabel = <span style={{ fontSize: labelFontSize, color }}>{labelText} (is required)</span>;
+    }
 
     return (
       <FormControlLabel
@@ -98,7 +106,7 @@ export class CheckboxWithLabelInput extends Component {
             color='primary'
             inputProps={{ 'aria-label': 'primary checkbox' }}
             size={checkBoxSize}
-            style={{ padding: checkBoxPadding }}
+            style={{ padding: checkBoxPadding, color }}
           />
         }
       />
@@ -109,13 +117,15 @@ export class CheckboxWithLabelInput extends Component {
     const val = e.target.checked;
     const { inputName, } = this.props;
     const eventType = !e.type || e.type === 'update' ? null : e.type; // detect if event is user or programmatic driven
-    const helperMsg = '';
-    const isError = undefined;
-    const isValid = true;
+    
+    const isValid = val;
 
     this.setState(
-      { val, helperMsg, isError },
-      () => updateInput(this.state.inputIndex, { inputName, val, isValid, eventType })
+      { val },
+      () =>  {
+        updateInput(this.state.inputIndex, { inputName, val, isValid, eventType });
+        this.props.updateError();
+      }
     );
 
     // if external callback is passed also update the value there

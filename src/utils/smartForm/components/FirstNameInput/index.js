@@ -62,7 +62,7 @@ export class FirstNameInput extends Component {
     } = this.props;
 
     const { val, inputIndex, isError, helperMsg } = this.state;
-debugger;    
+
     return (
       <TextField
         name={inputName}

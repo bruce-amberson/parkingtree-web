@@ -12,7 +12,7 @@ import {
   notificationShow,
 } from 'utils/utility';
 
-import EmailInput from 'utils/smartForm/components/EmailInput';
+import DomesticPhoneInput from 'utils/smartForm/components/DomesticPhoneInput';
 
 import { 
   clearSmartForm,
@@ -25,7 +25,7 @@ import { userLogin } from 'ui/actions';
 
 import 'features/public/ForgotPassword/styles.css';
 
-export class Login extends Component {
+export class ForgotUsername extends Component {
 
   static propTypes = {
     userLogin: PropTypes.func.isRequired,
@@ -52,18 +52,17 @@ export class Login extends Component {
               <div className='Forgot_logo'>
                 <img src={ require('ui/media/parkingtree/logo.png') } alt='The Parking Tree' width='325px' />
               </div>
-              <div className='Forgot_title'><p />forgot password</div>
+              <div className='Forgot_title'><p />forgot username</div>
               <div className='Forgot_explanation'>
-                <p>After you submit your username or email address,<br />
-                we'll email you a link you can click to change your password.</p>
-            
-                If you don't receive a text within 10 minutes, please contact support.
+                <p>Your username is your email address.</p>
+                If the email address you are using doesn't work you can enter your mobile phone number.<br />
+                If it is one record we can text you the associated email address.<p/>
               </div>
-              <div className='Forgot_username'>
-                <EmailInput
-                  inputName='userName'
+              <div className='Forgot_phone'>
+                <DomesticPhoneInput
+                  inputName='phone'
                   isRequired={true}
-                  labelText='Email'
+                  labelText='Mobile Phone'
                   style={{ width: '300px' }}
                   autoComplete={'off'}
                 />
@@ -84,7 +83,7 @@ export class Login extends Component {
                   style={{ width: '150px' }}
                   onClick={e => this.loginUser(e)}
                 >
-                  send
+                  SUBMIT
                 </Button>
               </div>
             </div>
@@ -100,7 +99,7 @@ export class Login extends Component {
     const validationObject = checkRequiredInputs(list);
     if (validationObject.isValid) {
       const result = prepInputList(validationObject.list);
-      console.log(result);
+      console(result);
     }
     else {
       updateInputList(validationObject.list);
@@ -117,4 +116,4 @@ export class Login extends Component {
 export default connect(null, {
   userLogin,
   notificationShow,
-})(Login);
+})(ForgotUsername);

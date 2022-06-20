@@ -7,13 +7,14 @@
 .Register_Container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: .5fr .25fr .5fr .5fr .5fr .5fr .5fr;
+  grid-template-rows: .5fr .25fr .5fr .5fr .5fr .5fr .5fr .5fr;
   gap: 0px 0px;
   grid-template-areas:
     "logo"
     "title"
     "firstname"
     "lastname"
+    "phone"
     "username"
     "pass"
     "pass-requirements"
@@ -24,10 +25,13 @@
 .Register_title { 
   grid-area: title;
   text-transform: uppercase;
+  font-weight: bolder;
+  font-size: larger;
+  padding-top: 20px;
 }
 .Register_firstname {
   grid-area: firstname;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 .Register_lastname {
   grid-area: lastname;
@@ -35,6 +39,10 @@
 }
 .Register_username { 
   grid-area: username;
+  padding-top: 5px;
+}
+.Register_phone { 
+  grid-area: phone;
   padding-top: 5px;
 }
 .Register_pass {

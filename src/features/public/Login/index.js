@@ -5,6 +5,7 @@ import { cloneDeep } from 'lodash';
 
 import {
   Button,
+  withStyles,
 } from '@material-ui/core';
 
 import { 
@@ -24,11 +25,21 @@ import {
 
 import { userLogin } from 'ui/actions';
 
+import { coreColors } from 'ui/themes/parkingtree/parkingtreeTheme';
 import 'features/public/Login/styles.css';
+
+const muiStyles = {
+  root: {
+    color: coreColors.primary,
+    top: '0px',
+    marginBottom: '0px',
+  }
+}
 
 export class Login extends Component {
 
   static propTypes = {
+    classes: PropTypes.object.isRequired,
     userLogin: PropTypes.func.isRequired,
   };
 
@@ -42,6 +53,7 @@ export class Login extends Component {
 
   render() {
     const { loading } = this.state;
+    const { classes } = this.props;
     return (
       <div className='Login_formContainer'>
         <LoadingOverlay
@@ -51,13 +63,15 @@ export class Login extends Component {
           <form onSubmit={this.loginUser}>
             <div className='Login_Container'>
               <div className='Login_logo'>
-                <img src={ require('ui/media/parkingtree/logo.png') } alt='The Parking Tree' width='325px' />
+                <img src={ require('ui/media/parkingtree/logo.png') } alt='The Parking Tree' width='325px' /><br />
+                <h1><font style={{ color: coreColors.primary }}>The all-in-one parking platform</font><br/>
+                for multifamily communities</h1>
               </div>
               <div className='Login_username'>
                 <EmailInput
                   inputName='userName'
                   isRequired={true}
-                  labelText='User Name (eMail)'
+                  labelText='User Name'
                   style={{ width: '250px' }}
                   autoComplete={'off'}
                 />
@@ -82,8 +96,29 @@ export class Login extends Component {
                 </Button>
               </div>
               <div className='Login_links'>
-                <a href='/register'>Register</a><br />
-                <a href='/forgot-password'>Forgot Password</a>
+                <Button
+                  style={{ width: '300px' }}
+                  className={classes.root}
+                  onClick={() => this.goToRoute('/forgot-password')}
+                >
+                  forgot password
+                </Button><br />
+                <Button
+                  style={{ width: '300px' }}
+                  className={classes.root}
+                  onClick={() => this.goToRoute('/forgot-username')}
+                >
+                  forgot username
+                </Button><p />
+                
+                Don't have an account?<br />
+                <Button
+                  style={{ width: '250px' }}
+                  className={classes.root}
+                  onClick={() => this.goToRoute('/register')}
+                >
+                  sign up
+                </Button>
               </div>
             </div>
           </form>              
@@ -113,7 +148,7 @@ export class Login extends Component {
 
 }
 
-export default connect(null, {
+export default withStyles(muiStyles)(connect(null, {
   userLogin,
   notificationShow,
-})(Login);
+})(Login));

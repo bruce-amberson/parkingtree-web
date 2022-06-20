@@ -24,7 +24,7 @@
   font-size: larger;
 }
 .Forgot_explanation { grid-area: explanation; }
-.Forgot_username { 
+.Forgot_phone { 
   grid-area: username;
   padding-top: 20px;
 }

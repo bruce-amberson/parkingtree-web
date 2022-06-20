@@ -21,6 +21,7 @@ import {
 import FirstNameInput from 'utils/smartForm/components/FirstNameInput';
 import LastNameInput from 'utils/smartForm/components/LastNameInput';
 import EmailInput from 'utils/smartForm/components/EmailInput';
+import DomesticPhoneInput from 'utils/smartForm/components/DomesticPhoneInput';
 import PasswordInput from 'utils/smartForm/components/PasswordInput';
 import CheckboxWithLabelInput from 'utils/smartForm/components/CheckboxWithLabelInput';
 
@@ -86,7 +87,7 @@ export class Register extends Component {
               <div className='Register_logo'>
                 <img src={ require('ui/media/parkingtree/logo.png') } alt='The Parking Tree' width='325px' />
               </div>
-              <div className='Register_title'>resident registration</div>
+              <div className='Register_title'>sign up</div>
               <div className='Register_firstname'>
                 <FirstNameInput
                   inputName='firstName'
@@ -106,7 +107,16 @@ export class Register extends Component {
                   autoComplete={'off'}
                 />
               </div>
-              <div className='Register_username'>
+              <div className='Register_phone'>
+                <DomesticPhoneInput
+                  inputName='phone'
+                  isRequired={true}
+                  labelText='Mobile Phone'
+                  style={{ width: '300px' }}
+                  autoComplete={'off'}
+                />
+              </div>
+              <div className='username'>
                 <EmailInput
                   inputName='userName'
                   isRequired={true}
@@ -198,6 +208,7 @@ export class Register extends Component {
     if (validationObject.isValid) {
       const result = prepInputList(validationObject.list);
       console.log(result);
+      this.goToRoute('/registration-confirmation');
     }
     else {
       const termsCheckbox = list.find(input => input.inputName === 'terms');
@@ -214,6 +225,10 @@ export class Register extends Component {
     const checkBoxIndex = window.smartForm.inputList.findIndex(input => input.inputName === 'terms');
     updateInput(checkBoxIndex, { inputName: 'terms', val: true, isValid: true });
     this.setState({ isReadingTerms: false }); // close buttom page
+  }
+
+  goToRoute = tabRoute => {
+    this.props.history.push(tabRoute);
   }
 }
 

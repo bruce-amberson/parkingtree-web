@@ -36,6 +36,8 @@ export class PasswordInput extends Component {
     autoComplete: PropTypes.string, // expected val is 'on' or 'off'
     className: PropTypes.string,
     style: PropTypes.object,
+
+    fieldUpdate: PropTypes.func,
   };
 
   state = {
@@ -118,8 +120,7 @@ export class PasswordInput extends Component {
   inputChange = e => {
     let val = e.target.value.trimStart() || '';
     // eslint-disable-next-line no-irregular-whitespace
-    val = val.replace(/[^a-z0-9 .,\-':#/&$()]/gi,''); // only allow alphanumeric values and . , - ' : # / & $ ( ).
-
+    
     if (val === this.state.val && e.type !== 'update') return;
 
     const eventType = !e.type || e.type === 'update' ? null : e.type; // detect if event is user or programmatic driven
@@ -140,8 +141,17 @@ export class PasswordInput extends Component {
     }
     this.setState(
       { val: inputVal, helperMsg, isError },
-      () => updateInput(this.state.inputIndex, { inputName, val, isValid, eventType })
+      () => { 
+        updateInput(this.state.inputIndex, { inputName, val, isValid, eventType });
+        if (this.props.fieldUpdate) {
+          this.props.fieldUpdate();
+        }
+      }
     );
+  }
+
+  isFunction(functionToCheck) {
+    return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
   }
   
 }

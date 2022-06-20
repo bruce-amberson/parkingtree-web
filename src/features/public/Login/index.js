@@ -57,7 +57,7 @@ export class Login extends Component {
                 <EmailInput
                   inputName='userName'
                   isRequired={true}
-                  labelText='User Name'
+                  labelText='User Name (eMail)'
                   style={{ width: '250px' }}
                   autoComplete={'off'}
                 />

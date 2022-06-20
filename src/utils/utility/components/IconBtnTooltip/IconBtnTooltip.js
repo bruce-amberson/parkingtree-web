@@ -1,40 +1,41 @@
-/*
-*
-* IconBtnTooltip
-*
-*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import requiredIf from 'react-required-if';
 import {
-  Icon,
   IconButton,
   Tooltip
 } from '@material-ui/core';
 
+import CloseIcon from '@mui/icons-material/Close';
+import CreateIcon from '@mui/icons-material/Create';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import PrintIcon from '@mui/icons-material/Print';
+
 const commonIcons = {
   CLOSE: {
-    icon: 'close',
+    icon: <CloseIcon />,
     title: 'Close',
   },
   CREATE: {
-    icon: 'create',
+    icon: <CreateIcon />,
     title: 'Edit',
   },
   EXPAND_LESS: {
-    icon: 'expand_less',
+    icon: <ExpandLessIcon />,
     title: 'Collapse',
   },
   EXPAND_MORE: {
-    icon: 'expand_more',
+    icon: <ExpandMoreIcon />,
     title: 'Expand',
   },
   MORE_VERT: {
-    icon: 'more_vert',
+    icon: <MoreVertIcon />,
     title: 'Menu',
   },
   PRINT: {
-    icon: 'print',
+    icon: <PrintIcon />,
     title: 'Print',
   },
 };
@@ -64,7 +65,7 @@ export function IconBtnTooltip({ buttonProps, icon, iconProps, onClick, title, t
         onClick={onClick}
         {...buttonProps}
       >
-        <Icon {...iconProps}>{icon}</Icon>
+        {icon}
       </IconButton>
     </Tooltip>
   );

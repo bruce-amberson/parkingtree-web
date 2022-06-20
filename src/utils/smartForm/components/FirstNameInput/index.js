@@ -8,7 +8,7 @@ import {
   updateInput,
   helperTextManage, 
   helperErrorManage
-} from 'utils/singleForm/helper';
+} from 'utils/smartForm/helper';
 
 export class FirstNameInput extends Component {
 
@@ -40,11 +40,11 @@ export class FirstNameInput extends Component {
 
   componentDidUpdate() {
     const { inputName } = this.props;
-    const list = window.singleForm.inputList;
+    const list = window.smartForm.inputList;
     if (list.length > 0) {
       const curInput = list[this.state.inputIndex];
       if (curInput && curInput.update && curInput.inputName === inputName && curInput.val !== undefined) {
-        const e = { target: { value: curInput.val }, type: 'update' };
+        const e = { target: { value: curInput.val || '' }, type: 'update' };
         this.inputChange(e);
       }
       if (curInput && curInput.delete && curInput.inputName === inputName) {
@@ -62,7 +62,7 @@ export class FirstNameInput extends Component {
     } = this.props;
 
     const { val, inputIndex, isError, helperMsg } = this.state;
-    
+debugger;    
     return (
       <TextField
         name={inputName}
@@ -76,6 +76,7 @@ export class FirstNameInput extends Component {
         autoComplete={autoComplete || 'on'}
         style={style}
         className={className}
+        variant='filled'
         onChange={e => this.inputChange(e)}
         inputProps={{
           maxLength: 20,
@@ -87,7 +88,6 @@ export class FirstNameInput extends Component {
       />
     );
   }
-
 
   inputChange = e => {
     let val = e.target.value.trimStart() || '';
@@ -104,19 +104,17 @@ export class FirstNameInput extends Component {
     
     const regex = /^[A-Za-z.\s,'-]+$/; // case insensitive, space, period, comma, single quote and hyphen.
 
-    if (val.length === 0) {
+    if (val.length === 0 && !regex.test(val)) {
       val = undefined;
       isValid = undefined;
     }
     else if (val.length > 0 && !regex.test(val)) {
+      isValid = false;
       inputVal = val;
       helperMsg = "Allowable characters: . , ' -"; // eslint-disable-line
       isError = true;
-      isValid = false;
     }
     else {
-      helperMsg = '';
-      isError = undefined;
       isValid = true;
       inputVal = val;
     }

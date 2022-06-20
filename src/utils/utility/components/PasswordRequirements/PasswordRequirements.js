@@ -1,30 +1,16 @@
-/*
-*
-* PasswordRequirements
-*
-*/
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  Icon,
   LinearProgress,
   withStyles,
 } from '@material-ui/core';
 
+import { CheckCircle } from '@material-ui/icons';
+
 import './PasswordRequirements.styles.css';
 
 const styles = theme => ({
-  iconRoot: {
-    fontSize: '16px',
-    marginRight: '3px',
-  },
-  iconGrey: {
-    color: theme.palette.grey['400'],
-  },
-  iconGreen: {
-    color: '#41AD49',
-  },
   progressRoot: {
     backgroundColor: theme.palette.grey['300'],
     width: '50%',
@@ -53,6 +39,29 @@ export class PasswordRequirements extends React.Component {
   static defaultProps = {
     passwordRequirements: [],
   };
+
+  componentDidUpdate(prevProps) {
+    const { password, passwordRequirements, onPasswordCheck } = this.props;
+    if (password !== prevProps.password) {
+      if (this.passwordCheck(password, passwordRequirements)) {
+        onPasswordCheck(true);
+      }
+      else {
+        onPasswordCheck(false);
+      }
+    }
+  }
+
+  render() {
+    return (
+      <div className='PasswordRequirements_container'>
+        {this.progressBarCompose()}
+        <div className='PasswordRequirements_requirementsContainer'>
+          {this.requirementsCompose()}
+        </div>
+      </div>
+    );
+  }
 
   passwordCheck(password, pwdReqs) {
     return pwdReqs.every(req => this.requirementCheck(password, req));
@@ -100,12 +109,12 @@ export class PasswordRequirements extends React.Component {
   }
 
   requirementsCompose() {
-    const { classes, passwordRequirements, password } = this.props;
+    const { passwordRequirements, password } = this.props;
     const requirements = passwordRequirements.map(req => {
-      let iconClass = classes.iconGrey;
-
+      
+      let checkColor = 'silver';
       if (this.requirementCheck(password, req)) {
-        iconClass = classes.iconGreen;
+        checkColor = 'green';
       }
 
       return (
@@ -113,16 +122,8 @@ export class PasswordRequirements extends React.Component {
           key={req.PasswordRequirementId}
           className='PasswordRequirements_requirement'
         >
-          <Icon
-            classes={{
-              root: classes.iconRoot,
-              colorPrimary: iconClass,
-            }}
-            color='primary'
-          >
-            check_circle
-          </Icon>
-          <span>{req.RequirementDescription}</span>
+          <CheckCircle style={{ color: checkColor }} />
+          <span style={{ color: '#666', marginLeft: '5px' }}>{req.RequirementDescription}</span>
         </div>
       );
     });
@@ -130,29 +131,6 @@ export class PasswordRequirements extends React.Component {
     return (
       <div>
         {requirements}
-      </div>
-    );
-  }
-
-  componentDidUpdate(prevProps) {
-    const { password, passwordRequirements, onPasswordCheck } = this.props;
-    if (password !== prevProps.password) {
-      if (this.passwordCheck(password, passwordRequirements)) {
-        onPasswordCheck(true);
-      }
-      else {
-        onPasswordCheck(false);
-      }
-    }
-  }
-
-  render() {
-    return (
-      <div className='PasswordRequirements_container'>
-        {this.progressBarCompose()}
-        <div className='PasswordRequirements_requirementsContainer'>
-          {this.requirementsCompose()}
-        </div>
       </div>
     );
   }

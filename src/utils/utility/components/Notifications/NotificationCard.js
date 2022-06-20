@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconBtnTooltip from 'utils/utility/components/IconBtnTooltip';
+import { Button } from '@material-ui/core';
+import CloseIcon from '@mui/icons-material/Close';
+
 import 'utils/utility/components/Notifications/css/NotificationCard.styles.css';
 
 
@@ -13,16 +15,11 @@ class NotificationCard extends React.Component {
     onDismiss: PropTypes.func.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      successMessageTimeoutID: null,
-      cardClass: 'NotificationsCard_cardContainer_hide',
-    };
-    this.dismissHandle = this.dismissHandle.bind(this);
-  }
-
+  state = {
+    successMessageTimeoutID: null,
+    cardClass: 'NotificationsCard_cardContainer_hide',
+  };
+  
   dismissHandle() {
     this.setState({
       cardClass: 'NotificationsCard_cardContainer_hide',
@@ -63,7 +60,7 @@ class NotificationCard extends React.Component {
     else if (this.props.messageType === 'warning') {
       colorBarClass = 'NotificationsCard_colorBarWarn';
     }
-    
+
     return (
       <div className={this.state.cardClass}>
         <div className={colorBarClass} />
@@ -73,11 +70,10 @@ class NotificationCard extends React.Component {
               : this.props.message
           }
         </div>
-        <IconBtnTooltip
-          buttonProps={{ className: 'NotificationsCard_dismiss' }}
-          icon='close'
+
+        <Button 
+          endIcon={<CloseIcon />}
           onClick={() => this.dismissHandle()}
-          title='Close'
         />
       </div>
     );

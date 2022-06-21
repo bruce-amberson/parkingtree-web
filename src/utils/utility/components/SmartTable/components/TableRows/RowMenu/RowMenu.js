@@ -1,8 +1,3 @@
-/*
-*
-* RowMenu
-*
-*/
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,9 +6,9 @@ import {
   MenuItem,
 } from '@material-ui/core';
 
-import IconBtnTooltip from '../../../../IconBtnTooltip';
+import IconBtnTooltip from 'utils/utility/components/IconBtnTooltip'
 
-import * as types from '../../../constants';
+import * as types from 'utils/utility/components/SmartTable/constants';
 
 
 export class RowMenu extends React.Component {
@@ -67,6 +62,7 @@ export class RowMenu extends React.Component {
       <div>
         <IconBtnTooltip
           icon='more_vert'
+          title='More'
           onClick={e => this.setState({ anchorEl: e.currentTarget })}
         />
         <Menu

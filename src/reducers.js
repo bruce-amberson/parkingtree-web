@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
-import Notifications from 'utils/utility/components/Notifications/reducer';
 import Session from 'ui/reducer';
+import UserManagement from 'features/private/UserManagement/reducer'
+import Notifications from 'utils/utility/components/Notifications/reducer';
 
 
 /*
@@ -16,8 +17,9 @@ const rootReducer = (state, action) => {
 };
 
 const appReducer = combineReducers({
-  notifications: Notifications,
   session: Session,
+  usermgmt: UserManagement,
+  notifications: Notifications,
 });
 
 export default rootReducer;

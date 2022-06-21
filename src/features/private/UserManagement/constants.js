@@ -1,0 +1,1 @@
+export const GET_ROLES = 'UserManagement/GET_ROLES';

@@ -1,8 +1,3 @@
-/*
-*
-* TableHeader
-*
-*/
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as types from '../../constants';
@@ -12,7 +7,7 @@ import {
   Icon,
 } from '@material-ui/core';
 
-import { dataFilter, dataSort } from '../../helper';
+import { dataFilter, dataSort } from 'utils/utility/components/SmartTable/helper';
 
 import './styles.css';
 

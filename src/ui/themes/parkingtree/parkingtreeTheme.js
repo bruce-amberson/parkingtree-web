@@ -2,6 +2,8 @@ import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 export const coreColors = {
   primary: '#0EC47E',
+  secondary: '#ACE1AF',
+  tertiary: '#EDF9EB',
   accent: 'orange',
   error: '#FF0000',
   text: '#404040',

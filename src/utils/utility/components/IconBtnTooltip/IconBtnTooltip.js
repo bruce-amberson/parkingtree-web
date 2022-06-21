@@ -11,32 +11,37 @@ import CreateIcon from '@mui/icons-material/Create';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import SearchIcon from '@mui/icons-material/Search';
 import PrintIcon from '@mui/icons-material/Print';
 
 const commonIcons = {
   CLOSE: {
     icon: <CloseIcon />,
-    title: 'Close',
+    title: 'close',
   },
   CREATE: {
     icon: <CreateIcon />,
-    title: 'Edit',
+    title: 'edit',
   },
   EXPAND_LESS: {
     icon: <ExpandLessIcon />,
-    title: 'Collapse',
+    title: 'collapse',
   },
   EXPAND_MORE: {
     icon: <ExpandMoreIcon />,
-    title: 'Expand',
+    title: 'expand',
   },
   MORE_VERT: {
     icon: <MoreVertIcon />,
-    title: 'Menu',
+    title: 'more_vert',
   },
   PRINT: {
     icon: <PrintIcon />,
-    title: 'Print',
+    title: 'print',
+  },
+  SEARCH: {
+    icon: <SearchIcon />,
+    title: 'search',
   },
 };
 
@@ -48,7 +53,21 @@ function getTitle(icon) {
     case commonIcons.EXPAND_LESS.icon: return commonIcons.EXPAND_LESS.title;
     case commonIcons.EXPAND_MORE.icon: return commonIcons.EXPAND_MORE.title;
     case commonIcons.MORE_VERT.icon: return commonIcons.MORE_VERT.title;
+    case commonIcons.SEARCH.icon: return commonIcons.SEARCH.title;
     case commonIcons.PRINT.icon: return commonIcons.PRINT.title;
+    default: return '';
+  }
+}
+
+function getImage(icon) {
+  switch (icon) {
+    case commonIcons.CLOSE.title: return commonIcons.CLOSE.icon;
+    case commonIcons.CREATE.title: return commonIcons.CREATE.icon;
+    case commonIcons.EXPAND_LESS.title: return commonIcons.EXPAND_LESS.icon;
+    case commonIcons.EXPAND_MORE.title: return commonIcons.EXPAND_MORE.icon;
+    case commonIcons.MORE_VERT.title: return commonIcons.MORE_VERT.icon;
+    case commonIcons.SEARCH.title: return commonIcons.SEARCH.icon;
+    case commonIcons.PRINT.title: return commonIcons.PRINT.icon;
     default: return '';
   }
 }
@@ -65,7 +84,7 @@ export function IconBtnTooltip({ buttonProps, icon, iconProps, onClick, title, t
         onClick={onClick}
         {...buttonProps}
       >
-        {icon}
+        {getImage(icon)}
       </IconButton>
     </Tooltip>
   );

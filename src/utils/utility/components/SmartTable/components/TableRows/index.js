@@ -1,39 +1,36 @@
-/*
-*
-* TableRows
-*
-*/
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { cloneDeep } from 'lodash';
-import * as types from '../../constants';
+import * as types from 'utils/utility/components/SmartTable/constants';
 
 import {
   withStyles,
 } from '@material-ui/core';
 
-import LoadingOverlay from '../../../LoadingOverlay';
+import LoadingOverlay from 'utils/utility/components/LoadingOverlay';
 
 import DefaultRow from './DefaultRow';
 import RowMenu from './RowMenu';
 
-import { dataFormat, } from '../../helper';
+import { dataFormat } from 'utils/utility/components/SmartTable/helper';
+
+import { coreColors } from 'ui/themes/parkingtree/parkingtreeTheme';
 
 import './styles.css';
 
 const styles = theme => ({
   selectedRow: {
-    backgroundColor: theme.palette.row.selected, //lighten(theme.palette.primary.main, 0.6),
+    backgroundColor: coreColors.primary,
     '&:hover': {
-      backgroundColor: theme.palette.row.hover, //lighten(theme.palette.primary.main, 0.8),
+      backgroundColor: coreColors.primary,
     },
   },
   tableRow: {
     '&:nth-child(even)': {
-      backgroundColor: theme.palette.row.trim, //theme.palette.primary.light,
+      backgroundColor: coreColors.tertiary, 
     },
     '&:hover': {
-      backgroundColor: theme.palette.row.hover, //lighten(theme.palette.primary.main, 0.8),
+      backgroundColor: coreColors.secondary, 
     },
   }
 });

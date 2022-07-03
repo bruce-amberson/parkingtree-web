@@ -13,6 +13,8 @@ import {
   TableToolbar,
 } from 'utils/utility/components/SmartTable';
 
+import { Modal } from 'utils/utility/components/Modal';
+
 import 'features/private/UserManagement/RolesList/styles.css';
 
 const select = (state) => ({
@@ -27,6 +29,8 @@ export class RolesList extends Component {
 
   state = {
     loading: false,
+    confirmDelete: false,
+    roleDeleteId: -1
   };
 
   componentWillUnmount() {
@@ -62,12 +66,12 @@ export class RolesList extends Component {
             {
               displayName: 'Edit Role',
               type: 'menu',
-              onSelect: row => null,
+              onSelect: row => this.goToRoute(`/user-management/rolesmanage/${row.roleId}`),
             },
             {
               displayName: 'Delete Role',
               type: 'menu',
-              onSelect: row => null,
+              onSelect: row => this.setState({ confirmDelete: true, roleDeleteId: row.roleId }),
               showIf: () => true,
             },
           ]}
@@ -79,8 +83,41 @@ export class RolesList extends Component {
           </TableContainer>
           <TablePagination />
         </SmartTable>
+        {this.confirmDelete()}
       </div>
     );
+  }
+
+  confirmDelete() {
+    const actionButtons = [
+      {
+        label: 'OK',
+        action: () => this.deleteRole(),
+        buttonType: 'text',
+      },
+    ];
+
+    return (
+      <Modal
+        actionButtons={actionButtons}
+        fullScreen={false}
+        maxWidth={'md'}
+        modal={false}
+        onCloseModal={() => this.setState({ confirmDelete: false })}
+        show={this.state.confirmDelete}
+        title='Confirm Delete'
+      >
+        <div style={{ margin: '0 0%', height: '55px', paddingTop: '15px' }}>
+          Are you sure you want to delete this Role?
+        </div>
+      </Modal>
+    );
+  }
+
+  deleteRole() {
+    const { roleDeleteId } = this.state;
+    console.log(roleDeleteId);
+    this.setState({ confirmDelete: false });
   }
 
   goToRoute = tabRoute => {

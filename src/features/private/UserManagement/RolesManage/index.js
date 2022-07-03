@@ -89,6 +89,7 @@ export class RolesManage extends Component {
       result.unusedPermissions = this.state.unusedPermissions;
       result.usedPermissions = this.state.usedPermissions;
       console.log(result);
+      this.goToRoute('/user-management/roleslist');
     }
     else {
       updateInputList(validationObject.list);

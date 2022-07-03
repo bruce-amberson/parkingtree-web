@@ -47,7 +47,7 @@ export class Login extends Component {
           show={loading}
           width='100%'
         > 
-          <form onSubmit={this.loginUser}>
+          <form onSubmit={this.forgotPasswordSubmit}>
             <div className='Forgot_Container'>
               <div className='Forgot_logo'>
                 <img src={ require('ui/media/parkingtree/logo.png') } alt='The Parking Tree' width='325px' />
@@ -82,7 +82,7 @@ export class Login extends Component {
                   variant='contained'
                   disabled={loading}
                   style={{ width: '150px' }}
-                  onClick={e => this.loginUser(e)}
+                  onClick={e => this.forgotPasswordSubmit(e)}
                 >
                   send
                 </Button>
@@ -94,7 +94,7 @@ export class Login extends Component {
     );
   }
 
-  loginUser(e) {
+  forgotPasswordSubmit(e) {
     e.preventDefault();
     const list = cloneDeep(window.smartForm.inputList);
     const validationObject = checkRequiredInputs(list);

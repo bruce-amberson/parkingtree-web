@@ -125,7 +125,7 @@ export class Sidenav extends Component {
               <ListItem
                 onClick={() => { 
                   this.selectListItem('users');
-                  this.goToRoute('/user-management/rolesmanage');
+                  this.goToRoute('/user-management/roleslist');
                 }}
                 button
                 selected={menuSelection['users']}

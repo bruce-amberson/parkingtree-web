@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, withRouter } from 'react-router-dom';
 
 import ProtectedRoute from 'ui/ProtectedRoute';
 
@@ -11,6 +11,7 @@ import 'ui/Authenticated/Container/style.css';
 export class Container extends Component {
 
   render() {
+    const { history } = this.props;
     return (
       <div className='Container_container'>
         <div className='Container_logo'>
@@ -20,7 +21,8 @@ export class Container extends Component {
           <div styles={{ width: '90%' }}>
             <Switch>
               <ProtectedRoute path='/user-management/roleslist' component={RolesList} />
-              <ProtectedRoute path='/user-management/rolesmanage' component={RolesManage} />
+              <ProtectedRoute path='/user-management/rolesmanage' component={RolesManage} key={history.location.pathname} />
+              <ProtectedRoute path='/user-management/rolesmanage/:id' component={RolesManage} key={history.location.pathname} />
               {/* <Route component={PageNotFound} /> */}
             </Switch>
             </div>
@@ -31,6 +33,4 @@ export class Container extends Component {
 
 }
 
-
-
-export default Container;
+export default withRouter(Container);

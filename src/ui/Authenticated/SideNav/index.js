@@ -123,7 +123,10 @@ export class Sidenav extends Component {
               </ListItem>
 
               <ListItem
-                onClick={() => this.selectListItem('users')}
+                onClick={() => { 
+                  this.selectListItem('users');
+                  this.goToRoute('/user-management/rolesmanage');
+                }}
                 button
                 selected={menuSelection['users']}
               >
@@ -195,7 +198,10 @@ export class Sidenav extends Component {
             </ListItem>
 
             <ListItem
-              onClick={() => this.props.userLogout()}
+              onClick={() => { 
+                this.props.userLogout();
+                this.goToRoute('/');
+              }}
               button
               selected={false}
             >
@@ -217,6 +223,11 @@ export class Sidenav extends Component {
       </React.Fragment>
     );
   }
+
+  goToRoute = tabRoute => {
+    this.props.history.push(tabRoute);
+  }
+
 }
 
 export default withRouter(withStyles(muiStyles)(connect(select, {

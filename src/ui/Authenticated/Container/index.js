@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import ProtectedRoute from 'ui/ProtectedRoute';
 
 import RolesList from 'features/private/UserManagement/RolesList';
+import RolesManage from 'features/private/UserManagement/RolesManage';
 
 import 'ui/Authenticated/Container/style.css';
 
@@ -18,7 +19,8 @@ export class Container extends Component {
         <div className='Container_body'>
           <div styles={{ width: '90%' }}>
             <Switch>
-              <ProtectedRoute path='/user-management/rolelist' component={RolesList} />
+              <ProtectedRoute path='/user-management/roleslist' component={RolesList} />
+              <ProtectedRoute path='/user-management/rolesmanage' component={RolesManage} />
               {/* <Route component={PageNotFound} /> */}
             </Switch>
             </div>
@@ -26,6 +28,9 @@ export class Container extends Component {
       </div>
     );
   }
+
 }
+
+
 
 export default Container;

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Button } from '@material-ui/core';
+
 import { 
   SmartTable,
   TableContainer,
@@ -35,38 +37,49 @@ export class RolesList extends Component {
     const { loading } = this.state;
     const { roleList } = this.props;
     return (
-      <SmartTable
-        idKey='roleId'
-        rows={roleList}
-        loading={loading}
-        columns={[
-          {
-            key: 'roleName',
-            title: 'Role',
-            type: 'string',
-          },
-        ]}
-        actions={[
-          {
-            displayName: 'Edit Role',
-            type: 'menu',
-            onSelect: row => null,
-          },
-          {
-            displayName: 'Delete Role',
-            type: 'menu',
-            onSelect: row => null,
-            showIf: () => true,
-          },
-        ]}
-      >
-        <TableToolbar />
-        <TableContainer maxHeight='100%'>
-          <TableHeader />
-          <TableRows />
-        </TableContainer>
-        <TablePagination />
-      </SmartTable>
+      <div>
+        <div style={{ textAlign: 'right' }}>
+          <Button
+            variant='contained'
+            onClick={() => null}
+          >
+            add user role
+          </Button>
+        </div>
+        <SmartTable
+          idKey='roleId'
+          title='User Roles'
+          rows={roleList}
+          loading={loading}
+          columns={[
+            {
+              key: 'roleName',
+              title: 'Role',
+              type: 'string',
+            },
+          ]}
+          actions={[
+            {
+              displayName: 'Edit Role',
+              type: 'menu',
+              onSelect: row => null,
+            },
+            {
+              displayName: 'Delete Role',
+              type: 'menu',
+              onSelect: row => null,
+              showIf: () => true,
+            },
+          ]}
+        >
+          <TableToolbar />
+          <TableContainer maxHeight='100%'>
+            <TableHeader />
+            <TableRows />
+          </TableContainer>
+          <TablePagination />
+        </SmartTable>
+      </div>
     );
   }
 

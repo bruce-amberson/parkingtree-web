@@ -2,7 +2,7 @@ export const roleList = [
   { roleId: 0, roleName: 'Admin' },
   { roleId: 1, roleName: 'Executive' },
   { roleId: 2, roleName: 'Power User' },
-  { roleId: 3, roleName: 'Support' },
+  { roleId: 3, roleName: 'Support Staff' },
   { roleId: 4, roleName: 'Resident' },
   { roleId: 5, roleName: 'Guest' },
   { roleId: 6, roleName: 'Property Manager' },
@@ -10,3 +10,10 @@ export const roleList = [
   { roleId: 8, roleName: 'Tow Admin' },
   { roleId: 9, roleName: 'Tow Staff' }
 ];
+
+export const permissions = {
+  EditRole: true,
+  EditUser: true,
+  EditProperty: true,
+  EditTow: true,
+};

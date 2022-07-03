@@ -8,7 +8,7 @@ import {
   updateInput,
   helperTextManage, 
   helperErrorManage
-} from 'utils/singleForm/helper';
+} from 'utils/smartForm/helper';
 
 export class TitleInput extends Component {
 
@@ -40,7 +40,7 @@ export class TitleInput extends Component {
 
   componentDidUpdate() {
     const { inputName } = this.props;
-    const list = window.singleForm.inputList;
+    const list = window.smartForm.inputList;
     if (list.length > 0) {
       const curInput = list[this.state.inputIndex];
       if (curInput && curInput.update && curInput.inputName === inputName && curInput.val !== undefined) {

@@ -11,6 +11,7 @@ const initialState = {
   token: '',
   userDetails: {},
   errors: [],
+  permissions: {},
   passwordRequirements: [
     {
       ApplicationPasswordRequirements: null,
@@ -58,7 +59,7 @@ const initialState = {
       SecurityPoints: 1,
     }
   ],
-
+  
   disableLeftNavigationMenu: false,
   sideNavOpen: false,
 };
@@ -73,10 +74,15 @@ export default function Session(state = initialState, action) {
       // newState.errors = [];
       // newState.token = action.payload.data.Token;
       const payload = action.payload;
-      debugger;
       if (payload.userName === 'b@a.com' && payload.password === 'gosteep') {
         newState.isAuthenticated = true;
         newState.userDetails.name = 'Bruce Amberson';
+        newState.permissions = {
+          EditRole: true,
+          EditUser: true,
+          EditProperty: true,
+          EditTow: true,
+        };
       }
       
       return newState;

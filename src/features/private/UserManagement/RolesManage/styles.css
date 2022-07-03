@@ -1,0 +1,31 @@
+.RolesAdd_container {
+  display: grid;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.RolesAdd_unused,
+.RolesAdd_used {
+  width: 300px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.RolesAdd_addUser {
+  background-color: #FFF;
+  border: 2px solid #999;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 5px;
+  max-height: 40px;
+
+  display: inline-flex;
+  align-items: center; 
+}
+
+.RolesAdd_addUser:hover {
+  border: 2px solid #000;
+  color: #000;
+}
